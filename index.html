@@ -12,13 +12,13 @@ function computerPlay() {
     nr = Math.floor(Math.random() * 3) +1;
     
     if (nr == 2) {
-        decision = "Rock";
+        decision = "rock";
     }
     else if(nr == 3) {
-        decision = "Paper";
+        decision = "paper";
     }
     else { 
-        decision =  "Scissors";
+        decision =  "scissors";
     }
     return decision;
     }
@@ -30,39 +30,31 @@ function round2 (){
     let playerSelection = prompt("Rock, paper or Scissors").toLocaleLowerCase();
 
     switch (true) { 
-     case (playerSelection == "rock" && computerSelection == "Rock"):
+     case (playerSelection == computerSelection):
      return "It's a Draw";
      break;
     
-     case (playerSelection == "rock" && computerSelection == "Paper"):
+     case (playerSelection == "rock" && computerSelection == "paper"):
      return "You lose! Paper beats Rock";
      break;
     
-     case (playerSelection == "rock" && computerSelection == "Scissors") :
+     case (playerSelection == "rock" && computerSelection == "scissors") :
      return  "You win! Rock beats Scissors";
      break;
     
-     case (playerSelection == "paper" && computerSelection == "Paper"):
-     return "It's a Draw";
-     break;
-    
-     case (playerSelection == "paper" && computerSelection == "Scissors"):
+     case (playerSelection == "paper" && computerSelection == "scissors"):
      return "You lose! Scissors beats Paper";
      break;
     
-     case (playerSelection == "paper" && computerSelection == "Rock"):
+     case (playerSelection == "paper" && computerSelection == "rock"):
      return "You win! Paper beats Rock";
      break;
     
-     case (playerSelection == "scissors" && computerSelection == "Scissors"):
-     return "It's a Draw";
-     break;
-    
-     case (playerSelection =="scissors" && computerSelection == "Rock"):
+     case (playerSelection =="scissors" && computerSelection == "rock"):
      return "You Lose! Rock beats scissors";
      break;
     
-     case (playerSelection == "scissors" && computerSelection == "Paper"):
+     case (playerSelection == "scissors" && computerSelection == "paper"):
      return "You win! Scissors beats Paper" ;
      break;
      
