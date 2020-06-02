@@ -25,11 +25,16 @@ function computerPlay() {
      
 
 
-function round2 (){
+function round1() {
     let computerSelection = computerPlay()
     let playerSelection = prompt("Rock, paper or Scissors").toLocaleLowerCase();
 
     switch (true) { 
+
+     case (playerSelection == ""):
+     return  "You need to choose";
+     break;
+
      case (playerSelection == computerSelection):
      return "It's a Draw";
      break;
@@ -59,11 +64,124 @@ function round2 (){
      break;
      
     default: "Something went wrong.";
-    }
     
+    }   
+}
+function game() {
+round = round1()
+switch (true) { 
 
-    
+   case (round =="You win! Scissors beats Paper" || round== "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ):
+   return console.log(1)
+   break;
+
+   case (round == "You Lose! Rock beats scissors" || round== "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock"):
+   console.log(2);
+   break;
+
+   case(round == "You need to choose") :
+   console.log(3);
+   break;
+
+default: console.log(4);
 }
 
-    </script>
+}
+function match1() {
+function game2(){ 
+round = round1()
+playerScore = 0;
+computerScore = 0;
+gameRound = 0;
+if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
+     playerScore++ 
+     gameRound++
+         if (gameRound = 5  && playerScore > computerScore){
+            alert("You have won!")  }
+    }
+
+else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
+    computerScore++
+    gameround++
+       if( gameRound = 5 && computerScore > playerScore) {
+           alert("you have lost")
+       }
+}
+else if (round == "You need to choose") {
+    gameRound++
+}
+
+if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
+     playerScore++ 
+     gameRound++
+         if (gameRound = 5  && playerScore > computerScore){
+            alert("You have won!")  }
+    }
+
+else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
+    computerScore++
+    gameround++
+       if( gameRound = 5 && computerScore > playerScore) {
+           alert("you have lost")
+       }
+}
+else if (round == "You need to choose") {
+    gameRound++
+}
+
+if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
+     playerScore++ 
+     gameRound++
+         if (gameRound = 5  && playerScore > computerScore){
+            alert("You have won!")  }
+    }
+
+else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
+    computerScore++
+    gameround++
+       if( gameRound = 5 && computerScore > playerScore) {
+           alert("you have lost")
+       }
+}
+else if (round == "You need to choose") {
+    gameRound++
+}
+
+if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
+     playerScore++ 
+     gameRound++
+         if (gameRound = 5  && playerScore > computerScore){
+            alert("You have won!")  }
+    }
+
+else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
+    computerScore++
+    gameround++
+       if( gameRound = 5 && computerScore > playerScore) {
+           alert("you have lost")
+       }
+}
+else if (round == "You need to choose") {
+    gameRound++
+}
+if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
+     playerScore++ 
+     gameRound++
+         if (gameRound = 5  && playerScore > computerScore){
+            alert("You have won!")  }
+    }
+
+else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
+    computerScore++
+    gameround++
+       if( gameRound = 5 && computerScore > playerScore) {
+           alert("you have lost")
+       }
+}
+else if (round == "You need to choose") {
+    gameRound++
+}
+
+}}
+    </script>   
 
