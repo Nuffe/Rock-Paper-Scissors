@@ -2,7 +2,9 @@
 <html>
 
 
-
+<p> To play press F12 and enter fullGame() in the Console. 
+    Good luck mate
+</p>
 
 </html>
 
@@ -76,7 +78,8 @@ function round1() {
 function game2(){ 
 round = round1()
 
-if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" )
+if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" 
+    || round== "You win! Rock beats Scissors" )
  {
     gameRound++;
     playerScore++; 
@@ -89,10 +92,14 @@ if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats
     else if (playerScore < computerScore && gameRound == 5) {
              alert(`You have lost the game ${playerScore} vs ${computerScore}`)  
             }
+    else if (playerScore == computerScore && gameRound == 5) {
+             alert(`It's a draw ${playerScore} vs ${computerScore}`)
+   }
      }
      
     
-else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock")
+else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" 
+    || round == "You lose! Paper beats Rock")
  {
     gameRound++;
     computerScore++;
@@ -104,8 +111,11 @@ else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scisso
              }
     else if (playerScore > computerScore && gameRound == 5) {
              alert(`You have won the game ${playerScore} vs ${computerScore}`)       
-            }  
-         }
+     } 
+    else if (playerScore == computerScore && gameRound == 5) {
+             alert(`It's a draw ${playerScore} vs ${computerScore}`)
+   } 
+ }
  
 
 else if (round == "It's a Draw") {
@@ -119,7 +129,12 @@ else if (round == "It's a Draw") {
     else if (playerScore > computerScore && gameRound == 5) {
              alert(`You have won the game ${playerScore} vs ${computerScore}`)
       } 
+    else if (playerScore == computerScore && gameRound == 5) {
+             alert(`It's a draw ${playerScore} vs ${computerScore}`)
    }
+ }
+
+
 }
 
 
