@@ -7,6 +7,9 @@
 </html>
 
 <script> 
+let playerScore = 0;
+let computerScore = 0;
+let gameRound = 0;
 
 function computerPlay() {
     nr = Math.floor(Math.random() * 3) +1;
@@ -27,7 +30,7 @@ function computerPlay() {
 
 function round1() {
     let computerSelection = computerPlay()
-    let playerSelection = prompt("Rock, paper or Scissors").toLocaleLowerCase();
+    let playerSelection = prompt("Rock, Paper or Scissors").toLocaleLowerCase();
 
     switch (true) { 
 
@@ -67,121 +70,68 @@ function round1() {
     
     }   
 }
-function game() {
-round = round1()
-switch (true) { 
 
-   case (round =="You win! Scissors beats Paper" || round== "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ):
-   return console.log(1)
-   break;
 
-   case (round == "You Lose! Rock beats scissors" || round== "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock"):
-   console.log(2);
-   break;
 
-   case(round == "You need to choose") :
-   console.log(3);
-   break;
-
-default: console.log(4);
-}
-
-}
-function match1() {
 function game2(){ 
 round = round1()
-playerScore = 0;
-computerScore = 0;
-gameRound = 0;
-if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
-     playerScore++ 
-     gameRound++
-         if (gameRound = 5  && playerScore > computerScore){
-            alert("You have won!")  }
-    }
 
-else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
-    computerScore++
-    gameround++
-       if( gameRound = 5 && computerScore > playerScore) {
-           alert("you have lost")
-       }
-}
-else if (round == "You need to choose") {
-    gameRound++
-}
+if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" )
+ {
+    gameRound++;
+    playerScore++; 
+    console.log(1);
+    alert(`Round ${gameRound} Score: ${playerScore} to ${computerScore}`)
+    
+    if      (playerScore > computerScore && gameRound == 5) {
+             alert(`You have won the game ${playerScore} vs ${computerScore}`)
+             } 
+    else if (playerScore < computerScore && gameRound == 5) {
+             alert(`You have lost the game ${playerScore} vs ${computerScore}`)  
+            }
+     }
+     
+    
+else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock")
+ {
+    gameRound++;
+    computerScore++;
+    console.log(2)
+    alert(`Round ${gameRound} Score: ${playerScore} to ${computerScore}`)
+       
+    if      (playerScore < computerScore && gameRound == 5) {
+             alert(`You have lost the game ${playerScore} vs ${computerScore}`) 
+             }
+    else if (playerScore > computerScore && gameRound == 5) {
+             alert(`You have won the game ${playerScore} vs ${computerScore}`)       
+            }  
+         }
+ 
 
-if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
-     playerScore++ 
-     gameRound++
-         if (gameRound = 5  && playerScore > computerScore){
-            alert("You have won!")  }
-    }
+else if (round == "It's a Draw") {
+    gameRound++;
+    console.log(3)
+    alert(`Round ${gameRound} Score: ${playerScore} to ${computerScore}`)
 
-else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
-    computerScore++
-    gameround++
-       if( gameRound = 5 && computerScore > playerScore) {
-           alert("you have lost")
-       }
-}
-else if (round == "You need to choose") {
-    gameRound++
-}
-
-if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
-     playerScore++ 
-     gameRound++
-         if (gameRound = 5  && playerScore > computerScore){
-            alert("You have won!")  }
-    }
-
-else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
-    computerScore++
-    gameround++
-       if( gameRound = 5 && computerScore > playerScore) {
-           alert("you have lost")
-       }
-}
-else if (round == "You need to choose") {
-    gameRound++
+    if      (playerScore < computerScore && gameRound == 5) {
+             alert(`You have lost the game ${playerScore} vs ${computerScore}`)  
+            }
+    else if (playerScore > computerScore && gameRound == 5) {
+             alert(`You have won the game ${playerScore} vs ${computerScore}`)
+      } 
+   }
 }
 
-if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
-     playerScore++ 
-     gameRound++
-         if (gameRound = 5  && playerScore > computerScore){
-            alert("You have won!")  }
-    }
 
-else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
-    computerScore++
-    gameround++
-       if( gameRound = 5 && computerScore > playerScore) {
-           alert("you have lost")
-       }
-}
-else if (round == "You need to choose") {
-    gameRound++
-}
-if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" || round== "You win! Rock beats Scissors" ) {
-     playerScore++ 
-     gameRound++
-         if (gameRound = 5  && playerScore > computerScore){
-            alert("You have won!")  }
-    }
-
-else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scissors beats Paper" || round == "You lose! Paper beats Rock") {
-    computerScore++
-    gameround++
-       if( gameRound = 5 && computerScore > playerScore) {
-           alert("you have lost")
-       }
-}
-else if (round == "You need to choose") {
-    gameRound++
+function fullGame(){
+    game2()
+    game2()
+    game2()
+    game2()
+    game2()
+    
 }
 
-}}
+
     </script>   
 
