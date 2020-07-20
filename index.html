@@ -1,18 +1,51 @@
 <!DOCTYPE html>
 <html>
+<head> 
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="script.css">
+</head>
+<body> 
 
+<div class="contain"> 
+ <div class="bubble"> 
+<div class="text"> 
+<div id="announce"> </div>
+<div id="info"></div>
+<div id="score"></div>
+</div>
+</div>   
+<div class="roboty"></div>
+<div class="pc"> </div>
+<div class="vs"></div>
+<div class="player"> </div>
+<div class="buttons"> 
+<button id="rock" name="rock"> </button>
+<button id="paper"name="paper"> </button>
+<button id="scissor"name="scissors"> </button>
+</div>
 
-<p> To play press F12 and enter fullGame() in the Console. 
-    Good luck mate
-</p>
-
+</div>
+</body>
 </html>
 
+
 <script> 
+
+   
+// det funkar! style html + kolla om du kan göra "play again" och så att scoren resetas. 
+//men möjligen ha en ruta som har kolla på totalet antal vinster du och datorn har
+// möjligen ändra rutorna till grön,röd och gul beroende på vinst eller förlust
+
+
+
+
 let playerScore = 0;
 let computerScore = 0;
 let gameRound = 0;
-
+let playerSelection;
+var announce = document.querySelector("#announce");
+var score = document.querySelector("#score");  
+var info = document.querySelector("#info")             
 function computerPlay() {
     nr = Math.floor(Math.random() * 3) +1;
     
@@ -32,7 +65,16 @@ function computerPlay() {
 
 function round1() {
     let computerSelection = computerPlay()
-    let playerSelection = prompt("Rock, Paper or Scissors").toLocaleLowerCase();
+
+if(computerSelection == "rock") {
+document.querySelector(".pc").style.backgroundImage = "url(imges/rock.png)"; 
+ }
+else if(computerSelection =="paper"){
+document.querySelector(".pc").style.backgroundImage = "url(imges/paper.png)"; 
+}
+else if(computerSelection =="scissors"){
+document.querySelector(".pc").style.backgroundImage = "url(imges/scissor.png)"; 
+}
 
     switch (true) { 
 
@@ -41,30 +83,37 @@ function round1() {
      break;
 
      case (playerSelection == computerSelection):
+     info.textContent = "It's a Draw";
      return "It's a Draw";
      break;
     
      case (playerSelection == "rock" && computerSelection == "paper"):
+     info.textContent ="You lose! Paper beats Rock";
      return "You lose! Paper beats Rock";
      break;
     
      case (playerSelection == "rock" && computerSelection == "scissors") :
+     info.textContent ="You win! Rock beats Scissors";
      return  "You win! Rock beats Scissors";
      break;
     
      case (playerSelection == "paper" && computerSelection == "scissors"):
+     info.textContent = "You lose! Scissors beats Paper";
      return "You lose! Scissors beats Paper";
      break;
     
      case (playerSelection == "paper" && computerSelection == "rock"):
+     info.textContent ="You win! Paper beats Rock";
      return "You win! Paper beats Rock";
      break;
     
      case (playerSelection =="scissors" && computerSelection == "rock"):
+     info.textContent ="You Lose! Rock beats scissors";
      return "You Lose! Rock beats scissors";
      break;
     
      case (playerSelection == "scissors" && computerSelection == "paper"):
+     info.textContent = "You win! Scissors beats Paper" ;
      return "You win! Scissors beats Paper" ;
      break;
      
@@ -75,25 +124,41 @@ function round1() {
 
 
 
-function game2(){ 
-round = round1()
+function game2(e){ 
+playerSelection = e.target.name;
+if(playerSelection === undefined) return;
+console.log(e)
 
+if(playerSelection == "rock") {
+document.querySelector(".player").style.backgroundImage = "url(imges/rock.png)"; 
+ }
+else if(playerSelection =="paper"){
+document.querySelector(".player").style.backgroundImage = "url(imges/paper.png)"; 
+}
+else if(playerSelection =="scissors"){
+document.querySelector(".player").style.backgroundImage = "url(imges/scissor.png)"; 
+}
+
+
+
+round = round1()
 if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" 
     || round== "You win! Rock beats Scissors" )
  {
     gameRound++;
     playerScore++; 
-    console.log(1);
-    alert(`Round ${gameRound} Score: ${playerScore} to ${computerScore}`)
+  
+    announce.textContent = `Round ${gameRound} Score: ${playerScore} to ${computerScore}`
+    document.querySelector(".bubble").style.backgroundImage = "url(imges/speech.png)";
     
     if      (playerScore > computerScore && gameRound == 5) {
-             alert(`You have won the game ${playerScore} vs ${computerScore}`)
+        score.textContent = (`You have won the game ${playerScore} vs ${computerScore}`)
              } 
     else if (playerScore < computerScore && gameRound == 5) {
-             alert(`You have lost the game ${playerScore} vs ${computerScore}`)  
+        score.textContent =(`You have lost the game ${playerScore} vs ${computerScore}`)  
             }
     else if (playerScore == computerScore && gameRound == 5) {
-             alert(`It's a draw ${playerScore} vs ${computerScore}`)
+        score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`)
    }
      }
      
@@ -103,50 +168,43 @@ else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scisso
  {
     gameRound++;
     computerScore++;
-    console.log(2)
-    alert(`Round ${gameRound} Score: ${playerScore} to ${computerScore}`)
+   
+    announce.textContent = `Round ${gameRound} Score: ${playerScore} to ${computerScore}`
+    document.querySelector(".bubble").style.backgroundImage = "url(imges/speech.png)";
        
     if      (playerScore < computerScore && gameRound == 5) {
-             alert(`You have lost the game ${playerScore} vs ${computerScore}`) 
+        score.textContent =(`You have lost the game ${playerScore} vs ${computerScore}`) 
              }
     else if (playerScore > computerScore && gameRound == 5) {
-             alert(`You have won the game ${playerScore} vs ${computerScore}`)       
+        score.textContent =(`You have won the game ${playerScore} vs ${computerScore}`)       
      } 
     else if (playerScore == computerScore && gameRound == 5) {
-             alert(`It's a draw ${playerScore} vs ${computerScore}`)
+        score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`)
    } 
  }
  
 
 else if (round == "It's a Draw") {
     gameRound++;
-    console.log(3)
-    alert(`Round ${gameRound} Score: ${playerScore} to ${computerScore}`)
+   
+    announce.textContent = `Round ${gameRound} Score: ${playerScore} to ${computerScore}`
+    document.querySelector(".bubble").style.backgroundImage = "url(imges/speech.png)";
 
     if      (playerScore < computerScore && gameRound == 5) {
-             alert(`You have lost the game ${playerScore} vs ${computerScore}`)  
+        score.textContent =(`You have lost the game ${playerScore} vs ${computerScore}`)  
             }
     else if (playerScore > computerScore && gameRound == 5) {
-             alert(`You have won the game ${playerScore} vs ${computerScore}`)
+        score.textContent =(`You have won the game ${playerScore} vs ${computerScore}`)
       } 
     else if (playerScore == computerScore && gameRound == 5) {
-             alert(`It's a draw ${playerScore} vs ${computerScore}`)
+        score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`)
    }
  }
 
 
 }
+window.addEventListener("mousedown", game2);
 
-
-function fullGame(){
-    game2()
-    game2()
-    game2()
-    game2()
-    game2()
-    
-}
 
 
     </script>   
-

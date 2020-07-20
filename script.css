@@ -1,0 +1,115 @@
+
+body{
+    background-color:wheat;
+}
+
+.contain{
+    position: relative;
+    top: 70px;
+    margin: 0px 0 0 41%;
+    padding: 0 0 0 0;
+    width: 285px;
+    height: 305px;
+}
+.buttons{
+    position: relative;
+    top: 60px;
+    margin: auto;
+    width: 159px;
+}
+button:active{
+    opacity:0.7;
+}
+button:focus{
+    outline:none;
+}
+.roboty{
+    display: block;
+    margin:auto;
+    background: url(imges/robot.png) wheat;
+    width: 80px;
+    height: 80px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 2px wheat;
+}
+
+.pc{
+    margin: auto;
+    position: relative;
+    top: 8px;
+    width: 46px;
+    height: 47px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 2px #efce90;
+
+
+}
+.player{ 
+    position: relative;
+    top: 37px;
+    margin: auto;
+    width: 46px;
+    height: 47px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 2px #efce90;
+
+}
+
+.bubble {
+    display: block;
+    
+    position: relative;
+    top: 55px;
+    left: 157px;
+    width: 200px;
+    height: 150px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 0px wheat;
+    z-index: 1; 
+}
+
+.text{
+    width: 156px;
+    position: relative;
+    top: 21px;
+    left: 22px;
+}
+#paper{ 
+    
+    background: url(imges/paper.png) wheat;
+    position:solid;
+    width: 50px;
+    height: 50px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 2px wheat;
+    }
+    #scissor{ 
+        background: url(imges/scissor.png) wheat;
+        position:solid;
+        width: 50px;
+        height: 50px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border: solid 2px wheat;
+        }
+    #rock{ 
+            background: url(imges/rock.png) wheat;
+            position:solid;
+            width: 50px;
+            height: 50px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: solid 2px wheat;
+            }
