@@ -23,7 +23,7 @@
 <button id="paper"name="paper"> </button>
 <button id="scissor"name="scissors"> </button>
 </div>
-
+<button id="restart" class="restart">Play again</button>
 </div>
 </body>
 </html>
@@ -32,9 +32,10 @@
 <script> 
 
    
-// det funkar! style html + kolla om du kan göra "play again" och så att scoren resetas. 
+ 
 //men möjligen ha en ruta som har kolla på totalet antal vinster du och datorn har
 // möjligen ändra rutorna till grön,röd och gul beroende på vinst eller förlust
+// kanske göra så att datorn bara säger poäng och rundan. men när du vinner så blir det text någon annan stans + cryss på ögonen?
 
 
 
@@ -43,6 +44,7 @@ let playerScore = 0;
 let computerScore = 0;
 let gameRound = 0;
 let playerSelection;
+var restart = document.querySelector("#restart");
 var announce = document.querySelector("#announce");
 var score = document.querySelector("#score");  
 var info = document.querySelector("#info")             
@@ -143,7 +145,7 @@ document.querySelector(".player").style.backgroundImage = "url(imges/scissor.png
 
 round = round1()
 if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats Rock" 
-    || round== "You win! Rock beats Scissors" )
+    || round== "You win! Rock beats Scissors" ) //different final round to still announs winner
  {
     gameRound++;
     playerScore++; 
@@ -153,13 +155,13 @@ if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats
     
     if      (playerScore > computerScore && gameRound == 5) {
         score.textContent = (`You have won the game ${playerScore} vs ${computerScore}`)
-             } 
+        restart.style.display ="block"; } //make restart button appear after match
     else if (playerScore < computerScore && gameRound == 5) {
         score.textContent =(`You have lost the game ${playerScore} vs ${computerScore}`)  
-            }
+        restart.style.display ="block";}
     else if (playerScore == computerScore && gameRound == 5) {
         score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`)
-   }
+        restart.style.display ="block";}
      }
      
     
@@ -174,13 +176,13 @@ else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scisso
        
     if      (playerScore < computerScore && gameRound == 5) {
         score.textContent =(`You have lost the game ${playerScore} vs ${computerScore}`) 
-             }
+        restart.style.display ="block"; }
     else if (playerScore > computerScore && gameRound == 5) {
         score.textContent =(`You have won the game ${playerScore} vs ${computerScore}`)       
-     } 
+        restart.style.display ="block";} 
     else if (playerScore == computerScore && gameRound == 5) {
         score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`)
-   } 
+        restart.style.display ="block";} 
  }
  
 
@@ -192,18 +194,19 @@ else if (round == "It's a Draw") {
 
     if      (playerScore < computerScore && gameRound == 5) {
         score.textContent =(`You have lost the game ${playerScore} vs ${computerScore}`)  
-            }
+        restart.style.display ="block"; }
     else if (playerScore > computerScore && gameRound == 5) {
         score.textContent =(`You have won the game ${playerScore} vs ${computerScore}`)
-      } 
+        restart.style.display ="block";  } 
     else if (playerScore == computerScore && gameRound == 5) {
         score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`)
-   }
+        restart.style.display ="block";}
  }
 
 
 }
 window.addEventListener("mousedown", game2);
+restart.addEventListener("click", () =>  window.location.reload());
 
 
 

@@ -8,8 +8,8 @@ body{
     top: 70px;
     margin: 0px 0 0 41%;
     padding: 0 0 0 0;
-    width: 285px;
-    height: 305px;
+    width: 411px;
+    height: 800px;
 }
 .buttons{
     position: relative;
@@ -66,7 +66,7 @@ button:focus{
     
     position: relative;
     top: 55px;
-    left: 157px;
+    left: 221px;
     width: 200px;
     height: 150px;
     background-size: 100% 100%;
@@ -112,4 +112,15 @@ button:focus{
             background-repeat: no-repeat;
             background-position: center;
             border: solid 2px wheat;
-            }
+    }
+.restart {
+  
+        position: relative;
+        width: 95px;
+        height: 33px;
+        display: none;
+        border: 0px solid;
+        border-radius: 10px;
+        background-color: #e1f5b3;
+        color: #d07e39
+    }
