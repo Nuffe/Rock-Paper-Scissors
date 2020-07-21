@@ -11,7 +11,7 @@
 <div class="text"> 
 <div id="announce"> </div>
 <div id="info"></div>
-<div id="score"></div>
+
 </div>
 </div>   
 <div class="roboty"></div>
@@ -23,6 +23,7 @@
 <button id="paper"name="paper"> </button>
 <button id="scissor"name="scissors"> </button>
 </div>
+<div id="score"></div>
 <button id="restart" class="restart">Play again</button>
 </div>
 </body>
@@ -152,15 +153,20 @@ if ( round == "You win! Scissors beats Paper" || round ==  "You win! Paper beats
   
     announce.textContent = `Round ${gameRound} Score: ${playerScore} to ${computerScore}`
     document.querySelector(".bubble").style.backgroundImage = "url(imges/speech.png)";
+    document.querySelector(".pc").style.borderColor= "#f30f0f63" //border changes color depending on winning or losing
+    document.querySelector(".player").style.borderColor= "#4ff94f78"
     
     if      (playerScore > computerScore && gameRound == 5) {
         score.textContent = (`You have won the game ${playerScore} vs ${computerScore}`)
+        score.style.display ="block";
         restart.style.display ="block"; } //make restart button appear after match
     else if (playerScore < computerScore && gameRound == 5) {
         score.textContent =(`You have lost the game ${playerScore} vs ${computerScore}`)  
-        restart.style.display ="block";}
+        score.style.display ="block";
+        restart.style.display ="block";} 
     else if (playerScore == computerScore && gameRound == 5) {
-        score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`)
+        score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`);
+        score.style.display ="block"; 
         restart.style.display ="block";}
      }
      
@@ -173,15 +179,20 @@ else if  (round == "You Lose! Rock beats scissors" || round == "You lose! Scisso
    
     announce.textContent = `Round ${gameRound} Score: ${playerScore} to ${computerScore}`
     document.querySelector(".bubble").style.backgroundImage = "url(imges/speech.png)";
+    document.querySelector(".player").style.borderColor= "#f30f0f63" 
+    document.querySelector(".pc").style.borderColor= "#4ff94f78"
        
     if      (playerScore < computerScore && gameRound == 5) {
         score.textContent =(`You have lost the game ${playerScore} vs ${computerScore}`) 
+        score.style.display ="block"; 
         restart.style.display ="block"; }
     else if (playerScore > computerScore && gameRound == 5) {
         score.textContent =(`You have won the game ${playerScore} vs ${computerScore}`)       
+        score.style.display ="block"; 
         restart.style.display ="block";} 
     else if (playerScore == computerScore && gameRound == 5) {
         score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`)
+        score.style.display ="block"; 
         restart.style.display ="block";} 
  }
  
@@ -191,15 +202,20 @@ else if (round == "It's a Draw") {
    
     announce.textContent = `Round ${gameRound} Score: ${playerScore} to ${computerScore}`
     document.querySelector(".bubble").style.backgroundImage = "url(imges/speech.png)";
+    document.querySelector(".pc").style.borderColor= "yellow" 
+    document.querySelector(".player").style.borderColor= "yellow"
 
     if      (playerScore < computerScore && gameRound == 5) {
         score.textContent =(`You have lost the game ${playerScore} vs ${computerScore}`)  
+        score.style.display ="block"; 
         restart.style.display ="block"; }
     else if (playerScore > computerScore && gameRound == 5) {
         score.textContent =(`You have won the game ${playerScore} vs ${computerScore}`)
+        score.style.display ="block"; 
         restart.style.display ="block";  } 
     else if (playerScore == computerScore && gameRound == 5) {
         score.textContent =(`It's a draw ${playerScore} vs ${computerScore}`)
+        score.style.display ="block"; 
         restart.style.display ="block";}
  }
 
@@ -209,5 +225,5 @@ window.addEventListener("mousedown", game2);
 restart.addEventListener("click", () =>  window.location.reload());
 
 
-
     </script>   
+
